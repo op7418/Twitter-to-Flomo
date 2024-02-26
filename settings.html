@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background-color: #f4f4f4;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type='text'] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h3>Flomo Settings</h3>
+    <div>
+        <label for="flomoUrl">Flomo URL:</label>
+        <input type="text" id="flomoUrl">
+    </div>
+    <div>
+        <label for="contentPrefix">Content Prefix:</label>
+        <input type="text" id="contentPrefix">
+    </div>
+    <button id="saveSettings">Save</button>
+    <p id="status"></p>
+</body>
+</html>

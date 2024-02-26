@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Twitter to Flomo",
+    "version": "1.0",
+    "description": "Synchronize tweets to Flomo",
+    "permissions": ["activeTab", "scripting", "storage", "contextMenus", "notifications","storage"],
+    "host_permissions": ["https://twitter.com/*"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://twitter.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "icons": {
+        "48": "icon.png"
+    }
+}
