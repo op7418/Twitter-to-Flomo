@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Settings</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="p-4">
-    <h3 class="text-lg font-bold mb-4">Flomo Settings</h3>
-    <div class="mb-4">
-        <label class="block mb-2" for="flomoUrl">Flomo URL:</label>
-        <input class="border p-2 rounded w-full" type="text" id="flomoUrl">
-    </div>
-    <div class="mb-4">
-        <label class="block mb-2" for="contentPrefix">Content Prefix:</label>
-        <input class="border p-2 rounded w-full" type="text" id="contentPrefix">
-    </div>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full" id="saveSettings">Save</button>
-    <p id="status" class="mt-2"></p>
-</body>
-</html>
+// settings.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Load saved settings
+    chrome.storage.sync.get(['flomoUrl', 'contentPrefix'], (items) => {
+        document.getElementById('flomoUrl').value = items.flomoUrl || '';
+        document.getElementById('contentPrefix').value = items.contentPrefix || '';
+    });
+});
+
+document.getElementById('saveSettings').addEventListener('click', () => {
+    // Save settings
+    let flomoUrl = document.getElementById('flomoUrl').value;
+    let contentPrefix = document.getElementById('contentPrefix').value;
+
+    chrome.storage.sync.set({ flomoUrl, contentPrefix }, () => {
+        document.getElementById('status').textContent = 'Settings saved.';
+    });
+});
