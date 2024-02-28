@@ -1,6 +1,5 @@
 // settings.js
 document.addEventListener('DOMContentLoaded', () => {
-    // Load saved settings
     chrome.storage.sync.get(['flomoUrl', 'contentPrefix'], (items) => {
         document.getElementById('flomoUrl').value = items.flomoUrl || '';
         document.getElementById('contentPrefix').value = items.contentPrefix || '';
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById('saveSettings').addEventListener('click', () => {
-    // Save settings
     let flomoUrl = document.getElementById('flomoUrl').value;
     let contentPrefix = document.getElementById('contentPrefix').value;
 
